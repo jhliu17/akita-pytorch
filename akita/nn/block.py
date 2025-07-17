@@ -119,7 +119,7 @@ class AkitaConvTower1D(nn.Module):
         out_dim_mult: int = None,
         divisible_by: int = 1,
         repeat: int = 1,
-        **conv_block_1d_kwargs
+        **conv_block_1d_kwargs,
     ):
         pass
         super(AkitaConvTower1D, self).__init__()
@@ -140,9 +140,7 @@ class AkitaConvTower1D(nn.Module):
             # convolution
             _rep_out_dim = _round(rep_out_dim)
             self.blocks.append(
-                AkitaConvBlock1D(
-                    in_dim=rep_in_dim, out_dim=_rep_out_dim, **conv_block_1d_kwargs
-                )
+                AkitaConvBlock1D(in_dim=rep_in_dim, out_dim=_rep_out_dim, **conv_block_1d_kwargs)
             )
 
             # update kernel dim
@@ -166,7 +164,7 @@ class AkitaDialatedResidualBlock1D(nn.Module):
         repeat: int = 1,
         norm_type=None,
         round: bool = False,
-        **conv_block_1d_kwargs
+        **conv_block_1d_kwargs,
     ):
         super(AkitaDialatedResidualBlock1D, self).__init__()
         self.norm_type = norm_type
@@ -181,14 +179,14 @@ class AkitaDialatedResidualBlock1D(nn.Module):
                     kernel_size=kernel_size,
                     dilation_rate=int(np.round(dilation_rate)),
                     norm_type=norm_type,
-                    **conv_block_1d_kwargs
+                    **conv_block_1d_kwargs,
                 ),
                 AkitaConvBlock1D(
                     in_dim=mid_dim,
                     out_dim=in_dim,
                     dropout=dropout,
                     norm_type=norm_type,
-                    **conv_block_1d_kwargs
+                    **conv_block_1d_kwargs,
                 ),
             )
             self.blocks.append(sub_block)
@@ -319,7 +317,7 @@ class AkitaDialatedResidualBlock2D(nn.Module):
         repeat: int = 1,
         symmetric: bool = True,
         round: bool = False,
-        **conv_block_2d_kwargs
+        **conv_block_2d_kwargs,
     ):
         super(AkitaDialatedResidualBlock2D, self).__init__()
         self.symmetric = symmetric
@@ -333,13 +331,10 @@ class AkitaDialatedResidualBlock2D(nn.Module):
                     out_dim=mid_dim,
                     kernel_size=kernel_size,
                     dilation_rate=int(np.round(dilation_rate)),
-                    **conv_block_2d_kwargs
+                    **conv_block_2d_kwargs,
                 ),
                 AkitaConvBlock2D(
-                    in_dim=mid_dim,
-                    out_dim=in_dim,
-                    dropout=dropout,
-                    **conv_block_2d_kwargs
+                    in_dim=mid_dim, out_dim=in_dim, dropout=dropout, **conv_block_2d_kwargs
                 ),
             )
             self.blocks.append(sub_block)
