@@ -1,8 +1,8 @@
 import torch
 
 from torch import nn
-from akita.nn.module import StochasticReverseComplement, StochasticShift, OneHot2Indices
-from akita.nn.module import (
+from akita_torch.nn.module import StochasticReverseComplement, StochasticShift, OneHot2Indices
+from akita_torch.nn.module import (
     OneToTwo,
     ConcatDist2D,
     Cropping2D,

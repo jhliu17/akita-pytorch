@@ -1,11 +1,11 @@
 import pytest
 import torch
 
-from akita.nn.block import AkitaConvBlock1D
-from akita.nn.block import AkitaConvTower1D
-from akita.nn.block import AkitaDialatedResidualBlock1D
-from akita.nn.block import AkitaConvBlock2D
-from akita.nn.block import AkitaDialatedResidualBlock2D
+from akita_torch.nn.block import AkitaConvBlock1D
+from akita_torch.nn.block import AkitaConvTower1D
+from akita_torch.nn.block import AkitaDialatedResidualBlock1D
+from akita_torch.nn.block import AkitaConvBlock2D
+from akita_torch.nn.block import AkitaDialatedResidualBlock2D
 
 
 @pytest.mark.parametrize(

@@ -1,4 +1,4 @@
-from akita.model import AkitaConfig, Akita
+from akita_torch.model import AkitaConfig, Akita
 
 
 def test_model_forward(sample_1m_seq_1hot):
