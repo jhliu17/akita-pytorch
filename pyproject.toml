@@ -3,7 +3,7 @@ requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "akita"
+name = "torchakita"
 dynamic = ["version"]
 description = "Pytorch implementation of Akita model for Hi-C prediction from DNA sequence"
 readme = "readme.md"
